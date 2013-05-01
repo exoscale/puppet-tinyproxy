@@ -35,6 +35,7 @@ class tinyproxy::params {
       #$connectport = hiera('tinyproxy-connectport', [])
       $tinyproxy_defaults = {
         configfile => "/etc/tinyproxy.conf",
+        package => "tinyproxy",
         service => "tinyproxy",
         hasstatus => false,
         hasrestart => true,
