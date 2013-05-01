@@ -26,7 +26,7 @@
 define tinyproxy::reversepath ( $ensure = present, $path, $target ) {
   include tinyproxy::params
   concat::fragment { "tinyproxy_reversepath_${name}":
-    target  => $tinyproxy::params::configfile,
+    target  => $tinyproxy::params::config['configfile'],
     ensure  => $ensure,
     content => "ReversePath \"${path}\" \"${target}\"\n",
     order   => 50
