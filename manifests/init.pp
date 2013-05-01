@@ -161,6 +161,7 @@ class tinyproxy ( $ensure = present,
                   $connectport = $tinyproxy::params::config['connectport'],
                   $reverseonly = $tinyproxy::params::config['reverseonly'],
                   $reversemagic = $tinyproxy::params::config['reversemagic'],
+                  $xtinyproxy = $tinyproxy::params::config['xtinyproxy'],
                   $config_source = '' ) inherits tinyproxy::params {
 
   $template = $config_source ? {
