@@ -58,7 +58,7 @@ class tinyproxy::params {
         anonymous => [],
         connectport => []
       }
-    $tinyproxy_config = merge($tinyproxy_defaults, hiera_hash('tinyproxy-config', {}))
+    $config = merge($tinyproxy_defaults, hiera_hash('tinyproxy-config', {}))
     }
     default: {
       fail("Unsupported distro ${::lsbdistcodename}")
