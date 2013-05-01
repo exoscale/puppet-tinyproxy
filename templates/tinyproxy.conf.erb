@@ -63,8 +63,8 @@ Timeout <%= config['connection_timeout'] %>
 #   /usr/share/tinyproxy
 #   /etc/tinyproxy
 #
-<%- if errorfiles.length > 0 && errorfiles.is_a?(Hash)
-errorfiles.each_pair { |k,v| -%>
+<%- if config['errorfiles'].length > 0 && config['errorfiles'].is_a?(Hash)
+config['errorfiles'].each_pair { |k,v| -%>
 ErrorFile <%= k %> "<%= v %>"
 <%- }
 end -%>
@@ -189,8 +189,8 @@ MaxRequestsPerChild <%= config['maxrequestsperchild'] %>
 # The order of the controls are important. All incoming connections are
 # tested against the controls based on order.
 #
-<%- if allow.length > 0 && allow.is_a?(Array)
-allow.each { |a| -%>
+<%- if config['allow'].length > 0 && config['allow'].is_a?(Array)
+config['allow'].each { |a| -%>
 Allow <%= a %>
 <%- }
 end -%>
@@ -286,8 +286,8 @@ end -%>
 # Most sites require cookies to be enabled for them to work correctly, so
 # you will need to allow Cookies through if you access those sites.
 #
-<%- if anonymous.is_a?(Array)
-anonymous.each { |h| -%>
+<%- if config['anonymous'].is_a?(Array)
+config['anonymous'].each { |h| -%>
 Anonymous "<%= h %>"
 <%- }
 end -%>
@@ -299,8 +299,8 @@ end -%>
 # the value to 0.  If no ConnectPort line is found, all ports are
 # allowed (which is not very secure.)
 #
-<%- if connectport.is_a?(Array)
-connectport.each { |p| -%>
+<%- if config['connectport'].is_a?(Array)
+config['connectport'].each { |p| -%>
 ConnectPort <%= p %>
 <%- }
 end -%>
